@@ -1,12 +1,12 @@
 import BloodBank from "../models/bloodbank.model.js";
 
 export const updateInventory = async (req, res) => {
-  const { bloodGroup, units } = req.body; // units = new count for that group
+  const { bloodGroup, units } = req.body;
   try {
     const bank = await BloodBank.findById(req.userId);
     if (!bank) return res.status(404).json({ message: "Bank not found" });
 
-    bank.inventory[bloodGroup] = units;
+    bank.inventory[bloodGroup] = (bank.inventory[bloodGroup] || 0) + units;
     await bank.save();
 
     res.status(200).json(bank.inventory);
