@@ -14,8 +14,15 @@ import cors from "cors";
 
 
 const app = express();
+// in index.js, before your other routes
+app.get("/", (req, res) => {
+  res.send("BloodConnect API is running");
+});
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({
+  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  credentials: true,
+}));
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
