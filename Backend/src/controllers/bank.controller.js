@@ -6,7 +6,12 @@ export const updateInventory = async (req, res) => {
     const bank = await BloodBank.findById(req.userId);
     if (!bank) return res.status(404).json({ message: "Bank not found" });
 
-    bank.inventory[bloodGroup] = (bank.inventory[bloodGroup] || 0) + units;
+    const newTotal = (bank.inventory[bloodGroup] || 0) + units;
+    if (newTotal < 0) {
+      return res.status(400).json({ message: "Stock cannot go below 0" });
+    }
+
+    bank.inventory[bloodGroup] = newTotal;
     await bank.save();
 
     res.status(200).json(bank.inventory);

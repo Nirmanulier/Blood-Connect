@@ -29,7 +29,7 @@ function BankDashboard() {
         }
       }
     );
-    fetchInventory();
+    
   }, []);
 
   const fetchInventory = async () => {
@@ -184,10 +184,17 @@ function BankDashboard() {
               />
             ))}
           </div>
+
+          {updateForm.bloodGroup && (
+            <p className="text-xs text-slate">
+              Current stock for <span className="font-mono font-medium text-ink">{updateForm.bloodGroup}</span>:{" "}
+              <span className="font-mono">{inventory?.inventory?.[updateForm.bloodGroup] ?? 0} units</span>
+            </p>
+          )}
+
           <input
             type="number"
-            min="0"
-            placeholder="Units available"
+            placeholder="Units to add (use a negative number to reduce)"
             value={updateForm.units}
             onChange={(e) => setUpdateForm({ ...updateForm, units: e.target.value })}
             className="input-field"
