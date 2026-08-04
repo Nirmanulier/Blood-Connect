@@ -224,4 +224,4 @@ This project was built as a final-year academic project. Feel free to fork and b
 
 ## 🙋 Author
 
-Built by Nirman as a final-year software engineering project.
+Built by Nirman as a MERN stack personal engineering project.
