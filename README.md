@@ -2,7 +2,7 @@
 
 A full-stack blood donor–bank connection platform built with the MERN stack. BloodConnect bridges the gap between blood donors, recipients, and blood banks — enabling real-time donor discovery, inventory management, urgent broadcast alerts, and donation camp coordination.
 
-**Live demo:** [blood-connect-one-nu.vercel.app](https://blood-connect-one-nu.vercel.app) *(update with your actual production URL)*
+**Live demo:** [blood-connect-one-nu.vercel.app](https://blood-connect-one-nu.vercel.app) 
 
 ---
 
